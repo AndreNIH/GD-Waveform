@@ -1,2 +1,2 @@
 # GD Waveform
-Todo: Add something here.
+This is a fork of Andre's repo.
