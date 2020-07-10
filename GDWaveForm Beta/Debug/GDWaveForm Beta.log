@@ -1,2 +1,7 @@
-﻿  MainWindow.cpp
-  GDWaveForm Beta.vcxproj -> C:\Users\Andre\source\repos\GDWaveForm Beta\Debug\GDWaveForm Beta.exe
+﻿  Drawable.cpp
+  Labels.cpp
+  main.cpp
+  MainWindow.cpp
+  WindowBase.cpp
+  Generating Code...
+  GDWaveForm Beta.vcxproj -> C:\Users\cwell\Source\Repos\GD-Waveform\Debug\GDWaveForm Beta.exe
