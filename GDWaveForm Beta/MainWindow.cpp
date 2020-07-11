@@ -49,13 +49,12 @@ void MainWindow::draw()
 {
 	SDL_RenderClear(_sdlRendererHandle);
 	SDL_RenderCopy(_sdlRendererHandle, _texture, 0, 0);
-	
 	cursorHighlight.x = grid_x;
 
 	SDL_SetRenderDrawColor(_sdlRendererHandle, 0, 255, 0, 0);
 	SDL_RenderFillRect(_sdlRendererHandle, &cursorHighlight);
 
-	for (auto& noderef : _drawableObjects) { (*noderef.get())->draw_node(_sdlRendererHandle); }
+	for (auto& noderef : _drawableObjects) { noderef->draw_node(_sdlRendererHandle); }
 	SDL_RenderPresent(_sdlRendererHandle);
 }
 int MainWindow::get_x() const
