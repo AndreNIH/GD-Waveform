@@ -1,2 +1,2 @@
 # GD Waveform
-Todo: Add something here.
+Wave form Project by Andre and Christopher Driggers-Ellis
