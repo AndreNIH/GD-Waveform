@@ -9,7 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-".vs/GDWaveForm Beta/v16"
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
