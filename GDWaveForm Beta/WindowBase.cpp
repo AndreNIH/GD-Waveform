@@ -37,4 +37,6 @@ void WindowBase::poll_event() {
 
 SDL_Renderer* WindowBase::get_renderer() const{return _sdlRendererHandle;}
 
-void WindowBase::append(Drawable* drawable_obj){_drawableObjects.push_back(std::make_unique<Drawable*>(drawable_obj));}
+void WindowBase::append(Drawable* drawable_obj){
+	_drawableObjects.push_back(drawable_obj);
+}

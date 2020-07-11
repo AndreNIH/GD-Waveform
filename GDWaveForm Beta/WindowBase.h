@@ -16,7 +16,7 @@ protected:
 	bool _closed = false;
 	SDL_Window* _sdlWinHandle  = nullptr;
 	SDL_Renderer* _sdlRendererHandle = nullptr;
-	std::vector<std::unique_ptr<Drawable*>>_drawableObjects;
+	std::vector<Drawable*>_drawableObjects;
 	virtual void eventHandler(SDL_Event& Event);
 public:
 	WindowBase(const std::string& winTitle, int width, int height);
