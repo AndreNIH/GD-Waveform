@@ -19,8 +19,8 @@ protected:
 	std::vector<Drawable*>_drawableObjects; //
 	virtual void eventHandler(SDL_Event& Event);
 public:
-	WindowBase(const std::string& winTitle, int width, int height);
-	~WindowBase();
+	WindowBase(const std::string& winTitle = "", int width = 0, int height = 0);
+	virtual ~WindowBase();
 	void poll_event();
 	virtual void draw() = 0;
 	bool is_closed() const { return _closed; }

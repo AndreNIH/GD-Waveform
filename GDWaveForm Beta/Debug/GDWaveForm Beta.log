@@ -4,5 +4,5 @@
   MainWindow.cpp
   WindowBase.cpp
   Generating Code...
-C:\Users\Andre\source\repos\GDWaveform Beta\GDWaveForm Beta\main.cpp(26): warning C4715: 'library_superinit': not all control paths return a value
-  GDWaveForm Beta.vcxproj -> C:\Users\Andre\source\repos\GDWaveform Beta\Debug\GDWaveForm Beta.exe
+C:\Users\cwell\Source\Repos\GD-Waveform\GDWaveForm Beta\main.cpp(26): warning C4715:  'library_superinit': not all control paths return a value
+  GDWaveForm Beta.vcxproj -> C:\Users\cwell\Source\Repos\GD-Waveform\Debug\GDWaveForm Beta.exe

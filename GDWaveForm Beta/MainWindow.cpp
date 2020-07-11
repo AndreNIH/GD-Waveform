@@ -25,11 +25,55 @@ void MainWindow::eventHandler(SDL_Event& Event)
 	}
 }
 
+void MainWindow::copy(const MainWindow& rhs)
+{
+	// Nondynamic copying of Window Base members
+	_innerWinTitle = rhs._innerWinTitle;
+	_width = rhs._width;
+	_height = rhs._height;
+	_closed = rhs._closed;
+	
+	// TODO: give independent winhandles and rendererhandles
+	_sdlWinHandle = rhs._sdlWinHandle; 
+	_sdlRendererHandle = rhs._sdlRendererHandle;
+
+	// Nondynamic copying of Main Window members
+	grid_x = rhs.grid_x;
+	enableCursorUpdate = rhs.enableCursorUpdate;
+	cursorHighlight = rhs.cursorHighlight;
+
+	_texture = rhs._texture;
+
+	// deep copy all drawable objects in the _drawableObjects vector
+	for (Drawable* drawableRHS : rhs._drawableObjects)
+	{
+		_drawableObjects.push_back(drawableRHS->send_copy());
+	}
+}
+
+void MainWindow::dealloc()
+{
+	if (_texture != nullptr) SDL_DestroyTexture(_texture);
+}
+
 MainWindow::MainWindow(const std::string& title, int width, int height) : WindowBase(title,width,height) {}
+
+MainWindow::MainWindow(const MainWindow& rhs)
+{
+	copy(rhs);
+}
+
+MainWindow& MainWindow::operator=(const MainWindow& rhs)
+{
+	dealloc();
+	copy(rhs);
+
+	return *this;
+}
 
 MainWindow::~MainWindow()
 {
-	if (_texture != nullptr) SDL_DestroyTexture(_texture);
+	dealloc();
 }
 
 void MainWindow::load_image(const std::string& filename)
@@ -54,6 +98,7 @@ void MainWindow::draw()
 	for (auto& noderef : _drawableObjects) { noderef->draw_node(_sdlRendererHandle); }
 	SDL_RenderPresent(_sdlRendererHandle);
 }
+
 int MainWindow::get_x() const
 {
 	return grid_x;
