@@ -1,2 +1,2 @@
 # GD Waveform
-This is a fork of Andre's repo.
+Wave form Project by Andre and Christopher Driggers-Ellis
