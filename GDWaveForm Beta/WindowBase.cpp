@@ -23,12 +23,14 @@ WindowBase::WindowBase(const std::string& winTitle, int width, int height) :
 	_sdlRendererHandle = SDL_CreateRenderer(_sdlWinHandle, -1, SDL_RENDERER_ACCELERATED);
 	if (_sdlRendererHandle == nullptr) throw std::runtime_error{ "SDL_CreateRender fail" };
 	
-	
 }
+
+
 
 WindowBase::~WindowBase() {
 	if (_sdlWinHandle != nullptr) SDL_DestroyWindow(_sdlWinHandle);
 	if (_sdlRendererHandle != nullptr) SDL_DestroyRenderer(_sdlRendererHandle);
+	if (!_drawableObjects.empty()) _drawableObjects.clear();
 }
 
 void WindowBase::poll_event() {

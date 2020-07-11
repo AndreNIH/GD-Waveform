@@ -10,9 +10,12 @@ private:
 	uint16_t grid_x = 0;
 	bool enableCursorUpdate = false;
 	SDL_Rect cursorHighlight{ 0,0,CURSORLINE_WIDTH,255 };
-
+	void copy(const MainWindow& rhs);
+	void dealloc();
 public:
 	MainWindow(const std::string& title, int width, int height);
+	MainWindow(const MainWindow& rhs);
+	MainWindow& operator=(const MainWindow& rhs);
 	~MainWindow();
 	void load_image(const std::string& filename);
 	void draw() override;
