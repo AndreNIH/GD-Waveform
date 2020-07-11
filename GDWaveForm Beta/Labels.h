@@ -7,8 +7,10 @@ class LabelTTF : public Drawable{
 private:
 	SDL_Texture* _texture = nullptr;
 	TTF_Font* _font = nullptr;
-	SDL_Surface* _surface = nullptr;
 	SDL_Rect _labelRect;
+	std::string _label;
+	SDL_Color _labelColor = {0,0,255,0};
+	SDL_Texture* get_label_texture(SDL_Renderer* renderer);
 public:
 	LabelTTF(const std::string& text, const std::string& fontname, int fontSize);
 	~LabelTTF();

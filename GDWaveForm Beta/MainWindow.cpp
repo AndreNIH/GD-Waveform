@@ -25,10 +25,7 @@ void MainWindow::eventHandler(SDL_Event& Event)
 	}
 }
 
-MainWindow::MainWindow(const std::string& title, int width, int height) : WindowBase(title,width,height)
-{
-	if (!IMG_Init(IMG_INIT_PNG)) throw std::runtime_error{ "IMG_INIT Failed to initialize" };
-}
+MainWindow::MainWindow(const std::string& title, int width, int height) : WindowBase(title,width,height) {}
 
 MainWindow::~MainWindow()
 {

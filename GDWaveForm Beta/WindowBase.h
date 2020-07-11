@@ -11,12 +11,12 @@
 class WindowBase {
 protected:
 	std::string _innerWinTitle;
-	int _width;
-	int _height;
-	bool _closed = false;
-	SDL_Window* _sdlWinHandle  = nullptr;
-	SDL_Renderer* _sdlRendererHandle = nullptr;
-	std::vector<Drawable*>_drawableObjects;
+	int _width;  //determine width of the window
+	int _height; //determines height of the window
+	bool _closed = false; //this variable dictates when to exit the update loop
+	SDL_Window* _sdlWinHandle  = nullptr; //internal handle for SDL library
+	SDL_Renderer* _sdlRendererHandle = nullptr;  //inter handle for SDL library
+	std::vector<Drawable*>_drawableObjects; //
 	virtual void eventHandler(SDL_Event& Event);
 public:
 	WindowBase(const std::string& winTitle, int width, int height);

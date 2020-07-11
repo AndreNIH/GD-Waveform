@@ -73,6 +73,10 @@
     <LibraryPath>C:\Users\Andre\Documents\Compiled Libs\SDL2_ttf-2.0.15\lib\x86;C:\Users\Andre\Documents\Compiled Libs\SDL2_image-2.0.5\lib\x86;C:\Users\Andre\Documents\Libraries\SDL2-2.0.12\lib\x86;$(LibraryPath)</LibraryPath>
     <IncludePath>C:\Users\Andre\Documents\Compiled Libs\SDL2_ttf-2.0.15\include;C:\Users\Andre\Documents\Compiled Libs\SDL2_image-2.0.5\include;C:\Users\Andre\Documents\Libraries\SDL2-2.0.12\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\Andre\Documents\Libraries\SDL2-2.0.12\include;C:\Users\Andre\Documents\Compiled Libs\SDL2_image-2.0.5\include;C:\Users\Andre\Documents\Compiled Libs\SDL2_ttf-2.0.15\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Andre\Documents\Compiled Libs\SDL2_ttf-2.0.15\lib\x86;C:\Users\Andre\Documents\Compiled Libs\SDL2_image-2.0.5\lib\x86;C:\Users\Andre\Documents\Libraries\SDL2-2.0.12\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

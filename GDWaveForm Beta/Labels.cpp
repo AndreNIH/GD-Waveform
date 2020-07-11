@@ -1,5 +1,13 @@
 #include "Labels.h"
 #include <iostream>
+SDL_Texture* LabelTTF::get_label_texture(SDL_Renderer* renderer)
+{
+	SDL_Surface* surface = TTF_RenderText_Solid(_font, _label.c_str(), _labelColor);
+	if (surface == nullptr) return nullptr;
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+	SDL_FreeSurface(surface);
+	return texture;
+}
 LabelTTF::LabelTTF(const std::string& text, const std::string& fontname, int fontSize)
 {
 	TTF_Font* font = TTF_OpenFont(fontname.c_str(), fontSize);
@@ -11,17 +19,12 @@ LabelTTF::LabelTTF(const std::string& text, const std::string& fontname, int fon
 
 LabelTTF::~LabelTTF()
 {
-	if (_surface) SDL_FreeSurface(_surface);
+
 }
 
 void LabelTTF::set_label(const std::string& text)
 {
-	if (_surface != nullptr) {
-		SDL_FreeSurface(_surface);
-		_surface = nullptr;
-	}
-	_surface = TTF_RenderText_Solid(_font, text.c_str(), { 0,0,255,0 });
-	if (!_surface) std::runtime_error{ "TTF_RenderTextSolid Error" };
+	_label = text;	
 }
 
 void LabelTTF::set_position(int x, int y) {
@@ -34,8 +37,8 @@ LabelTTF LabelTTF::create_string(const std::string& fontName, int fontSize) { re
 
 void LabelTTF::draw_node(SDL_Renderer* sharedRender)
 {
-	auto text_texture = SDL_CreateTextureFromSurface(sharedRender, _surface);
-	if(!text_texture) std::runtime_error{ "SDL_CreateTextureFromSurface Error" };
+	SDL_Texture* text_texture = get_label_texture(sharedRender);
+	if(!text_texture) std::runtime_error{ "SDL Label Texture Error" };
 	SDL_QueryTexture(text_texture, nullptr, nullptr, &_labelRect.w, &_labelRect.h);
 	SDL_RenderCopy(sharedRender, text_texture, nullptr, &_labelRect);
 	SDL_DestroyTexture(text_texture);

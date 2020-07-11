@@ -10,5 +10,5 @@ public:
 	void setX(int x);
 	void setY(int y);
 	void setPos(int x, int y);
-
+	virtual ~Drawable();
 };

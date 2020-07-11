@@ -2,10 +2,9 @@
 #include "WindowBase.h"
 #include "Drawable.h"
 
-constexpr short CURSORLINE_WIDTH = 3;
-     
 class MainWindow : public WindowBase {
 private:
+	constexpr static short CURSORLINE_WIDTH = 3;
 	SDL_Texture* _texture = nullptr;
 	void eventHandler(SDL_Event& Event) override;
 	uint16_t grid_x = 0;

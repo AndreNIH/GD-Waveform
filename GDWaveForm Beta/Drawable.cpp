@@ -15,3 +15,9 @@ void Drawable::setPos(int x, int y)
 	_x = x;
 	_y = y;
 }
+
+Drawable::~Drawable()
+{
+}
+
+
